@@ -36,6 +36,14 @@ const userController = {
         res.status(200).json(users);
       },
     
+    findById: async (req, res) => {
+    const userId = await userService.findById(req.params.id);
+    if (!userId) {
+        return res.status(404).json({ message: 'User does not exist' });
+    }
+        return res.status(200).json(userId);
+      },
+    
 };
 
 module.exports = userController;

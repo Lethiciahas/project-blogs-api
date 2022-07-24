@@ -22,6 +22,12 @@ const userService = {
         const user = await db.User.create({ displayName, email, password, image });
         return user;
     },
+    findById: async (id) => {
+        const user = await db.User.findByPk(id, {
+            attributes: { exclude: ['password'] },
+        });
+        return user;
+    },
 
 };
 
