@@ -1,6 +1,6 @@
 const sequelize = require('sequelize');
 
-const createCategory = (sequelize, DataTypes) => {
+const Category = (sequelize, DataTypes) => {
      const Category = sequelize.define('Category', {
         id: {
             type: DataTypes.INTEGER,
@@ -15,4 +15,4 @@ const createCategory = (sequelize, DataTypes) => {
      });
      return Category;
 };
-module.exports = createCategory;
+module.exports = Category;
