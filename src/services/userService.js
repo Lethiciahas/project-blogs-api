@@ -2,7 +2,18 @@
 const db = require('../database/models');
 
 const userService = {
-       checkUser: async ({ email }) => {
+    listUsers: async () => {
+        const users = await db.User.findAll();
+        const getUsers = users.map((user) => ({
+            id: user.id,
+            displayName: user.displayName,
+            email: user.email,
+            image: user.image,
+        }));
+        return getUsers;
+    },
+   
+    checkUser: async ({ email }) => {
         const user = await db.User.findOne({ where: { email } });
             return user;
     },
