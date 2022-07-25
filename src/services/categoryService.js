@@ -7,11 +7,7 @@ const categoryService = {
             return category;
     },
     listCategory: async () => {
-        const categories = await db.Category.findAll();
-        const getCategories = categories.map((category) => ({
-            id: category.id,
-            name: category.name,
-        }));
+        const getCategories = await db.Category.findAll();
         return getCategories;
     },
     checkCategory: async ({ categoryId }) => {
