@@ -3,13 +3,9 @@ const db = require('../database/models');
 
 const userService = {
     listUsers: async () => {
-        const users = await db.User.findAll();
-        const getUsers = users.map((user) => ({
-            id: user.id,
-            displayName: user.displayName,
-            email: user.email,
-            image: user.image,
-        }));
+        const getUsers = await db.User.findAll({
+            attributes: { exclude: ['password'] },
+        });
         return getUsers;
     },
    
