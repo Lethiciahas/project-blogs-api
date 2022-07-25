@@ -2,6 +2,7 @@ const express = require('express');
 const loginRouter = require('./routers/loginRouter');
 const userRouter = require('./routers/userRouter');
 const categoryRouter = require('./routers/categoryRouter');
+const postRouter = require('./routers/postRouter');
 const validateToken = require('./middleware/validateToken');
 // ...
 
@@ -16,6 +17,8 @@ app.use('/login', loginRouter);
 app.use('/user', validateToken, userRouter);
 
 app.use('/categories', validateToken, categoryRouter);
+
+app.use('/post', validateToken, postRouter);
 
 // ...
 

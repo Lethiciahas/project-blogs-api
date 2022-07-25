@@ -1,5 +1,5 @@
 const User = (sequelize, DataTypes) => {
-    const User = sequelize.define("User", {
+    const User = sequelize.define('User', {
       id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 
       displayName: DataTypes.STRING,
@@ -9,7 +9,7 @@ const User = (sequelize, DataTypes) => {
     },
     {
       timestamps: false,
-      tableName: 'Users',
+      tableName: "Users",
       });
       
       User.associate = (models) => {

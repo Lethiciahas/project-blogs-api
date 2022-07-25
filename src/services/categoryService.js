@@ -14,6 +14,10 @@ const categoryService = {
         }));
         return getCategories;
     },
+    checkCategory: async ({ categoryId }) => {
+        const check = await db.Category.findByPk(categoryId);
+        return check;
+    },
 };
 
 module.exports = categoryService;

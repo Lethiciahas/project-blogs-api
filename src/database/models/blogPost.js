@@ -1,6 +1,6 @@
 const sequelize = require('sequelize');
 
-const createBlogPost  = (sequelize, DataTypes) => {
+const BlogPost  = (sequelize, DataTypes) => {
     const BlogPost = sequelize.define('BlogPost', {
       id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
       title: DataTypes.STRING,
@@ -18,10 +18,10 @@ const createBlogPost  = (sequelize, DataTypes) => {
 
        BlogPost.associate = (models) => {
         BlogPost.belongsTo(models.User, {
-            foreignKey:'userId', as: 'User',
+            foreignKey:'userId', as: 'user',
         });
     }
     return BlogPost;
   };
 
-  module.exports = createBlogPost;
+  module.exports = BlogPost;
